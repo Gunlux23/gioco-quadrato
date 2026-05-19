@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="it">
+	<head>
+		<meta charset="UTF-8">		<!--obbligo il browser a usare questo-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Gioco a premi "trascina il quadrato"</title>
+		<link rel="stylesheet" href="mystyle.css">
+		<script src="script.js" defer></script>
+	</head>
+	<body>
+		<h1>Gioco a premi "trascina il quadrato"</h1>
+		<div class = "medio" ondrop="bravo(event)" ondragover="allowDrop(event)"></div>
+		<div>
+			<input type="button" id="startButton" value="Avvia gioco" onclick="startCronometro()">
+			<input type="text" id="cronometro" value="0:00:00" disabled>
+		</div>
+		<div id="pedine" style="display: none;"></div>
+
+		<!-- Classifica mostrata prima di avviare il gioco -->
+		<div id="classificaPre" class="classifica-pre">
+			<h2>Classifica</h2>
+			<div id="classificaListaPre"></div>
+		</div>
+
+		<!-- Overlay di fine partita: tempo finale + classifica a fianco -->
+		<div id="overlay" class="overlay-nascosta">
+			<div class="overlay-contenuto">
+				<h2>Complimenti!</h2>
+				<div class="overlay-corpo">
+					<div class="blocco-tempo">
+						<p>Tempo finale</p>
+						<div id="tempoFinale">0:00:00</div>
+					</div>
+					<div class="blocco-classifica">
+						<p>Classifica</p>
+						<div id="classificaOverlay"></div>
+					</div>
+				</div>
+				<button id="bottoneRiavvia" onclick="riavvia()">Gioca ancora</button>
+			</div>
+		</div>
+	</body>
+</html>
