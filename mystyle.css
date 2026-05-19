@@ -1,0 +1,245 @@
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: navy;
+  margin-left: 20px;
+}
+
+.classe_blu p {
+  color: blue; /* Applica il colore blu a tutti i paragrafi all'interno di un div con la classe "classeblu" */
+}
+
+.grande {
+  width: 800px;
+  height: 800px;
+  background-color: blue;
+  float: right;			/*float si può muovere per adattare allo schermo*/
+}
+
+.medio {
+  width: 400px;
+  height: 400px;
+  background-color: red;
+  float: right;
+}
+
+.piccolo {
+  width: 100px;
+  height: 100px;
+  background-color: yellow;
+  float: left;
+  border: 1px solid;
+  cursor: grab;
+}
+
+.piccolo:active {
+  cursor: grabbing;
+}
+
+.testo {
+  font-size: 16px;
+  color: navy;
+  text-align: center;
+  margin: 0;
+  padding-top: 35px;
+}
+
+#paragrafo_1 {
+  color: red; /* Applica il colore rosso solo al paragrafo con l'id "paragrafo_1" */
+}
+
+#cronometro {
+  font-family: monospace;
+  font-size: 18px;
+  text-align: center;
+  width: 100px;
+}
+
+/* --- Overlay tempo finale --- */
+
+.overlay-nascosta {
+  display: none;
+}
+
+.overlay-visibile {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.overlay-contenuto {
+  background-color: white;
+  padding: 40px 70px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  font-family: sans-serif;
+}
+
+.overlay-contenuto h2 {
+  color: navy;
+  margin: 0 0 10px 0;
+  font-size: 32px;
+}
+
+.overlay-contenuto p {
+  color: #555;
+  margin: 0;
+  font-size: 18px;
+}
+
+#tempoFinale {
+  font-family: monospace;
+  font-size: 72px;
+  font-weight: bold;
+  color: navy;
+  margin: 20px 0 30px 0;
+}
+
+#bottoneRiavvia {
+  background-color: navy;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#bottoneRiavvia:hover {
+  background-color: #001f6b;
+}
+
+/* --- Layout overlay con tempo + classifica a fianco --- */
+
+.overlay-corpo {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0 30px 0;
+}
+
+.blocco-tempo,
+.blocco-classifica {
+  text-align: center;
+}
+
+.blocco-tempo p,
+.blocco-classifica p {
+  margin: 0 0 10px 0;
+  color: #555;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* --- Tabella classifica (usata sia pre-gioco che a fine partita) --- */
+
+.classifica-tabella {
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.10);
+  font-family: sans-serif;
+}
+
+.classifica-tabella td {
+  padding: 12px 22px;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+
+.classifica-tabella tr:last-child td {
+  border-bottom: none;
+}
+
+.classifica-tabella .cella-pos {
+  text-align: center;
+}
+
+.classifica-tabella .badge-pos {
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: center;
+}
+
+.classifica-tabella .pos-1 .badge-pos {
+  background: linear-gradient(135deg, #ffd86b, #f0a500);
+  color: #5a4a00;
+  box-shadow: 0 2px 8px rgba(240, 165, 0, 0.45);
+}
+
+.classifica-tabella .pos-2 .badge-pos {
+  background: linear-gradient(135deg, #e8e8e8, #a8a8a8);
+  color: #333;
+  box-shadow: 0 2px 8px rgba(160, 160, 160, 0.45);
+}
+
+.classifica-tabella .pos-3 .badge-pos {
+  background: linear-gradient(135deg, #e3a577, #a05a23);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(160, 90, 35, 0.45);
+}
+
+.classifica-tabella .cella-tempo {
+  font-family: 'Courier New', monospace;
+  font-size: 22px;
+  color: navy;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding-left: 30px;
+  padding-right: 30px;
+  text-align: left;
+}
+
+.classifica-tabella .pos-1 .cella-tempo {
+  font-size: 26px;
+}
+
+.classifica-vuota {
+  color: #888;
+  font-style: italic;
+  margin: 0;
+  padding: 10px 0;
+}
+
+/* --- Classifica in linea (prima di avviare il gioco) --- */
+
+.classifica-pre {
+  clear: both;
+  width: fit-content;
+  margin: 40px auto;
+  padding: 0 20px;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.classifica-pre h2 {
+  color: navy;
+  margin: 0 0 16px 0;
+  font-size: 24px;
+}
+
+.classifica-pre.nascosta {
+  display: none;
+}
